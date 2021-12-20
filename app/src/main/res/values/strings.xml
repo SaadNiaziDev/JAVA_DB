@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CRUD</string>
+    <string name="add_course">Add Course</string>
+    <string name="enter_course_name">Enter course Name</string>
+    <string name="enter_course_duration">Enter Course Duration</string>
+    <string name="enter_course_description">Enter Course Description</string>
+</resources>

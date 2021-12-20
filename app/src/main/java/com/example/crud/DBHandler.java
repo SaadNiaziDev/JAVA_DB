@@ -23,8 +23,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String DESCRIPTION_COL = "description";
 
-    private static final String TRACKS_COL = "tracks";
-
     public DBHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -35,13 +33,12 @@ public class DBHandler extends SQLiteOpenHelper {
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL + " TEXT,"
                 + DURATION_COL + " TEXT,"
-                + DESCRIPTION_COL + " TEXT,"
-                + TRACKS_COL + " TEXT)";
+                + DESCRIPTION_COL + " TEXT)";
 
         db.execSQL(query);
     }
 
-    public void addNewCourse(String courseName, String courseDuration, String courseDescription, String courseTracks) {
+    public void addNewCourse(String courseName, String courseDuration, String courseDescription) {
 
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -52,8 +49,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(NAME_COL, courseName);
         values.put(DURATION_COL, courseDuration);
         values.put(DESCRIPTION_COL, courseDescription);
-        values.put(TRACKS_COL, courseTracks);
-
         db.insert(TABLE_NAME, null, values);
 
 
@@ -77,9 +72,8 @@ public class DBHandler extends SQLiteOpenHelper {
         if (cursorCourses.moveToFirst()) {
             do {
                 courseModalArrayList.add(new CourseModal(cursorCourses.getString(1),
-                        cursorCourses.getString(4),
-                        cursorCourses.getString(2),
-                        cursorCourses.getString(3)));
+                        cursorCourses.getString(3),
+                        cursorCourses.getString(2)));
             } while (cursorCourses.moveToNext());
         }
         cursorCourses.close();

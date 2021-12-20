@@ -48,10 +48,9 @@ public class CourseModal {
         this.id = id;
     }
 
-    public CourseModal(String courseName, String courseDuration, String courseTracks, String courseDescription) {
+    public CourseModal(String courseName, String courseDuration, String courseDescription) {
         this.courseName = courseName;
         this.courseDuration = courseDuration;
-        this.courseTracks = courseTracks;
         this.courseDescription = courseDescription;
     }
 }
